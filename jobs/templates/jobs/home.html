@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkScout</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-$END$
+    <header class="hero">
+        <h1>Find the perfect job for you</h1>
+        <form method="GET" action="{% url 'search_jobs' %}">
+            <input type="text" name="query" placeholder="Job title, keyword or company">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <!-- Add other sections below -->
 </body>
 </html>
