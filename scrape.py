@@ -3,6 +3,15 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from urllib.parse import urljoin
 
+import os
+import django
+
+# Set up Django environment
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'WorkScout.settings')
+django.setup()
+
+from jobs.models import JobListing
+
 # Define the base URL
 base_url = 'https://jobs.sap.com'
 
@@ -65,17 +74,19 @@ for job in jobs:
     apply_links.append(apply_link)
     job_descriptions.append(requirements_bullets)
 
-
 # Create a DataFrame
 df = pd.DataFrame({
     'Job Title': job_titles,
     'Job Location': job_locations,
     'Apply Link': apply_links,
     'Job Description': job_descriptions,
-
 })
 
-# Print the DataFrame
-df.to_csv('sap_job_listings.csv', index=False)
-
-print("CSV file 'sap_job_listings.csv' has been created successfully.")
+# Loop through DataFrame and save each job listing to the database
+for index, row in df.iterrows():
+    JobListing.objects.create(
+        job_title=row['Job Title'],
+        job_location=row['Job Location'],
+        apply_link=row['Apply Link'],
+        job_description="; ".join(row['Job Description'])  # Join list into a single string
+    )
