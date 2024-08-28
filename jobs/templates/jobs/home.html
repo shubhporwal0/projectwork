@@ -9,13 +9,83 @@
 </head>
 <body>
     <header class="hero">
-        <h1>Find the perfect job for you</h1>
-        <form method="GET" action="{% url 'search_jobs' %}">
-            <input type="text" name="query" placeholder="Job title, keyword or company">
-            <button type="submit">Search</button>
-        </form>
+        <div class="hero-text">
+            <h1>Find the perfect job for you</h1>
+            <form method="GET" action="{% url 'search_jobs' %}">
+                <input type="text" name="query" placeholder="Job title, keyword or company">
+                <div class="search-icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </div>
+            </form>
+        </div>
+        <img src="{% static 'images/undraw_coffee_with_friends_3cbj.svg' %}" alt="Coffee with Friends">
     </header>
 
-    <!-- Add other sections below -->
+    <!-- Featured Jobs Section -->
+    <section class="categories">
+        <h2>Featured Jobs</h2>
+        <div class="category-cards">
+            <!-- Job Card 1 -->
+            <div class="job-card job-card-1">
+                <div class="job-card-header">
+                    <span class="job-date">20 May, 2023</span>
+                </div>
+                <h3 class="job-company">Google</h3>
+                <h2 class="job-title">Senior UI/UX Designer</h2>
+                <div class="job-tags">
+                    <span class="job-tag">UX</span>
+                    <span class="job-tag">Graphic Designer</span>
+                    <span class="job-tag">Software Eng.</span>
+                </div>
+                <div class="job-details">
+                    <span class="job-price">$250/hr</span>
+                    <span class="job-location">Remote</span>
+                </div>
+                <button class="details-button">Details</button>
+            </div>
+
+            <!-- Job Card 2 -->
+            <div class="job-card job-card-2">
+                <div class="job-card-header">
+                    <span class="job-date">18 May, 2023</span>
+                </div>
+                <h3 class="job-company">Facebook</h3>
+                <h2 class="job-title">Frontend Developer</h2>
+                <div class="job-tags">
+                    <span class="job-tag">React</span>
+                    <span class="job-tag">JavaScript</span>
+                    <span class="job-tag">CSS</span>
+                </div>
+                <div class="job-details">
+                    <span class="job-price">$200/hr</span>
+                    <span class="job-location">Remote</span>
+                </div>
+                <button class="details-button">Details</button>
+            </div>
+
+            <!-- Job Card 3 -->
+            <div class="job-card job-card-3">
+                <div class="job-card-header">
+                    <span class="job-date">15 May, 2023</span>
+                </div>
+                <h3 class="job-company">Amazon</h3>
+                <h2 class="job-title">Backend Engineer</h2>
+                <div class="job-tags">
+                    <span class="job-tag">Python</span>
+                    <span class="job-tag">Django</span>
+                    <span class="job-tag">REST API</span>
+                </div>
+                <div class="job-details">
+                    <span class="job-price">$300/hr</span>
+                    <span class="job-location">On-site</span>
+                </div>
+                <button class="details-button">Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- More sections can be added here -->
 </body>
 </html>
