@@ -1,0 +1,257 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #4646B7;
+    color: white;
+    padding: 100px 40px; /* Increase padding for a bigger header box */
+    text-align: left; /* Align header text to the left */
+    position: relative;
+}
+
+.header-content {
+    max-width: 100%; /* Use full width */
+    margin: 0; /* Remove auto margin */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start (left) */
+}
+
+.header-content h1 {
+    font-size: 94px; /* Increase font size for the header */
+    margin-bottom: 20px; /* Add space below the header */
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+.header-nav {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.header-nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.search-bar {
+    margin-top: 30px;
+    width: 100%; /* Set width to full */
+    display: flex;
+    justify-content: flex-start; /* Align search bar to the left */
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 15px; /* Increase padding for larger input */
+    width: 50%; /* Adjust width for better alignment */
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 18px; /* Increase font size for better visibility */
+}
+
+.search-bar button {
+    padding: 15px 25px; /* Increase button size */
+    background-color: #FFBE0B;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px; /* Increase font size for better visibility */
+}
+
+.categories {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.category-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category-card {
+    background-color: #F0F0F0;
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.category-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.category-card .company {
+    font-weight: bold;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.job-tags span {
+    background-color: #ddd;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #333;
+}
+
+.salary {
+    font-size: 16px;
+    color: #000;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.details-button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    border: none;
+}
+
+.details-button:hover {
+    background-color: #000;
+}
+
+.featured-jobs {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #FFBE0B;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.filter-btn:hover {
+    background-color: #e0a800;
+}
+
+.job-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-list-item {
+    background-color: #F0F0F0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-info {
+    flex-grow: 1;
+}
+
+.sidebar {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 700px;
+    height: 100%;
+    background-color: #3A0CA3; /* Blue background */
+    color: white; /* White text */
+    box-shadow: -5px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.apply-btn {
+    background-color: #FFBE0B;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar h2, .sidebar h3, .sidebar p {
+    color: white; /* White text color */
+}
+
+.close-button {
+    cursor: pointer;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: #fff;
+}
+
+.sidebar-content {
+    padding: 20px;
+    color: white; /* Ensure text is white */
+}
+
+.sidebar-content .job-result {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.sidebar-content .job-result h3,
+.sidebar-content .job-result p {
+    color: white; /* Ensure text is white */
+}
+
+.close-button {
+    cursor: pointer;
+    color: white; /* Update color for contrast */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: #ccc;
+}

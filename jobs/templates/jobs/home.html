@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +43,8 @@
                     <span class="job-price">$250/hr</span>
                     <span class="job-location">Remote</span>
                 </div>
-                <button class="details-button">Details</button>
+                <!-- Link to job detail page -->
+                <a href="{% url 'job_detail' job_id=1 %}" class="details-button">Details</a>
             </div>
 
             <!-- Job Card 2 -->
@@ -62,7 +63,8 @@
                     <span class="job-price">$200/hr</span>
                     <span class="job-location">Remote</span>
                 </div>
-                <button class="details-button">Details</button>
+                <!-- Link to job detail page -->
+                <a href="{% url 'job_detail' job_id=2 %}" class="details-button">Details</a>
             </div>
 
             <!-- Job Card 3 -->
@@ -81,7 +83,8 @@
                     <span class="job-price">$300/hr</span>
                     <span class="job-location">On-site</span>
                 </div>
-                <button class="details-button">Details</button>
+                <!-- Link to job detail page -->
+                <a href="{% url 'job_detail' job_id=3 %}" class="details-button">Details</a>
             </div>
         </div>
     </section>

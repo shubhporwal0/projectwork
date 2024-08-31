@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="{% static 'jobs/css/styles1.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="header-nav">
+            <a href="#">Saved Jobs</a>
+            <a href="#">Interview Tips</a>
+            <a href="#">Something else?</a>
+        </nav>
+        <div class="header-container" style="display:flex;">
+            <div class="header-content">
+                <h1>Find the perfect job for you</h1>
+                <form class="search-bar" id="search-form">
+                    <input type="text" id="search-input" placeholder="Job title, keyword or company">
+                    <button type="button" id="search-button">Search</button>
+                </form>
+            </div>
+            <img src="{% static 'jobs/images/undraw_coffee_with_friends_3cbj.svg' %}" alt="Coffee with Friends" style="max-width: 300px; height: auto;">
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Our new categories</h2>
+        <div class="category-cards">
+            {% for rec_job in recommended_jobs %}
+            <div class="category-card">
+                <div class="card-date">{{ rec_job.posting_date }}</div>
+                <h3>{{ rec_job.company_name }}</h3>
+                <p>{{ rec_job.title }}</p>
+                <p>{{ rec_job.contract_location }}</p>
+                <p>{{ rec_job.work_mode }}</p>
+                <p>{{ rec_job.career_level }}</p>
+                <button class="details-button" data-job-id="{{ rec_job.id }}">Details</button>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-jobs">
+        <div>
+            <h1>Featured Jobs</h1>
+            <p>Know your strengths and find out what fits best for you</p>
+        </div>
+        <div class="filters">
+            <button class="filter-btn" data-filter="Entry Level">Entry Level</button>
+            <button class="filter-btn" data-filter="Mid Level">Mid Level</button>
+            <button class="filter-btn" data-filter="Intern">Intern</button>
+            <button class="filter-btn" data-filter="All">All</button>
+        </div>
+        <div class="job-listings">
+            <ul class="job-list">
+                {% for job in jobs %}
+                <li class="job-list-item" data-career-level="{{ job.career_level }}">
+                    <div class="job-info">
+                        <h3>{{ job.title }} ({{ job.career_level }})</h3>
+                        <p>{{ job.company_name }}</p>
+                        <p>{{ job.contract_location }}</p>
+                    </div>
+                    <button class="details-button" data-job-id="{{ job.id }}">Know More</button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sidebar for Job Details -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <span id="close-sidebar" class="close-button">&times;</span>
+            <div id="sidebar-content-inner">
+                <!-- Content dynamically updated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'jobs/js/main.js' %}"></script>
+</body>
+</html>
