@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Tips</title>
+    <link rel="stylesheet" href="{% static 'jobs/css/interview_tips.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Master Your Next Interview</h1>
+            <p>"Success is where preparation and opportunity meet."</p>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="introduction">
+        <div class="container">
+            <h2>Welcome to Our Interview Tips Page</h2>
+            <p>Prepare yourself for success with these expert tips and tricks designed to help you ace your next job interview. Whether you're a seasoned professional or a recent graduate, we've got you covered.</p>
+            <button class="cta-button">Download Guide</button>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="container">
+            <h2>Top Interview Tips</h2>
+            <div class="tips-cards">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <img src="{% static 'images/research.png' %}" alt="Research Icon">
+                    </div>
+                    <h3>Research the Company</h3>
+                    <p>Understand the company's mission, culture, and values. Tailor your responses to align with their goals and demonstrate that you are a good fit.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <img src="{% static 'images/practice.png' %}" alt="Practice Icon">
+                    </div>
+                    <h3>Practice Common Questions</h3>
+                    <p>Prepare for common interview questions such as "Tell me about yourself" and "Why do you want this job?" Practice your answers out loud.</p>
+                </div>
+                <!-- More cards as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+<section class="faq-section">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+            <h4>What should I bring to an interview? <span class="faq-arrow">▼</span></h4>
+            <div class="faq-answer">
+                <p>Bring copies of your resume, a list of references, a notebook and pen, and any other documents relevant to the job.</p>
+            </div>
+        </div>
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+            <h4>How early should I arrive? <span class="faq-arrow">▼</span></h4>
+            <div class="faq-answer">
+                <p>Arrive 10-15 minutes early to show punctuality and give yourself time to relax before the interview starts.</p>
+            </div>
+        </div>
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+            <h4>How should I dress for an interview? <span class="faq-arrow">▼</span></h4>
+            <div class="faq-answer">
+                <p>Dress appropriately based on the company culture. When in doubt, opt for business formal attire to make a strong first impression.</p>
+            </div>
+        </div>
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+            <h4>How do I handle unexpected questions? <span class="faq-arrow">▼</span></h4>
+            <div class="faq-answer">
+                <p>Take a deep breath, ask for a moment to think if needed, and provide a thoughtful response. It’s okay to admit if you don’t know the answer, but try to relate to a similar experience or skill.</p>
+            </div>
+        </div>
+        <!-- FAQ Item 5 -->
+        <div class="faq-item">
+            <h4>What should I do if I don't know the answer to a question? <span class="faq-arrow">▼</span></h4>
+            <div class="faq-answer">
+                <p>It's okay to admit that you don't know the answer. Show a willingness to learn by discussing how you would find the answer or relate it to something similar that you do know.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Additional Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><a href="#">How to Answer Behavioral Interview Questions</a></li>
+                <li><a href="#">The STAR Method: How to Shine in Your Interview</a></li>
+                <li><a href="#">Top 10 Questions to Ask in an Interview</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 WorkScout. All rights reserved. | <a href="#">Contact Us</a></p>
+                <div class="social-icons">
+                    <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                    <a href="#"><img src="{% static 'images/linkedin.png' %}" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/interview_tips.js' %}"></script>
+</body>
+</html>

@@ -96,3 +96,6 @@ def search_jobs(request):
         })
 
     return JsonResponse({'jobs': jobs_data})
+def interview_tips(request):
+    # New view for Interview Tips
+    return render(request, 'jobs/interview_tips.html')  # Adjust the path as necessary

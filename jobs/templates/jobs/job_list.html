@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Listings</title>
     <link rel="stylesheet" href="{% static 'jobs/css/styles1.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <!-- Header Section -->
     <header class="header">
+            <div class="workscout-logo">Workscout</div>
         <nav class="header-nav">
-            <a href="#">Saved Jobs</a>
-            <a href="#">Interview Tips</a>
-            <a href="#">Something else?</a>
+            <a href="#">Recently viewed jobs</a>
+            <a href="{% url 'interview_tips' %}" id="interview-tips-btn">Interview Tips</a>
+            <a href="#">Help</a>
         </nav>
         <div class="header-container" style="display:flex;">
             <div class="header-content">
@@ -27,23 +31,25 @@
         </div>
     </header>
 
-    <!-- Categories Section -->
-    <section class="categories">
-        <h2>Our new categories</h2>
-        <div class="category-cards">
-            {% for rec_job in recommended_jobs %}
-            <div class="category-card">
-                <div class="card-date">{{ rec_job.posting_date }}</div>
-                <h3>{{ rec_job.company_name }}</h3>
-                <p>{{ rec_job.title }}</p>
-                <p>{{ rec_job.contract_location }}</p>
-                <p>{{ rec_job.work_mode }}</p>
-                <p>{{ rec_job.career_level }}</p>
-                <button class="details-button" data-job-id="{{ rec_job.id }}">Details</button>
-            </div>
-            {% endfor %}
+   <!-- Categories Section -->
+<section class="categories">
+    <h2>Our new categories</h2>
+    <div class="category-cards">
+        {% for rec_job in recommended_jobs %}
+        <!-- Assign a different color class to each card using the modulo operator -->
+        <div class="category-card {% cycle 'card-color-1' 'card-color-2' 'card-color-3' %}">
+            <div class="card-date">{{ rec_job.posting_date }}</div>
+            <h3>{{ rec_job.company_name }}</h3>
+            <p>{{ rec_job.title }}</p>
+            <p>{{ rec_job.contract_location }}</p>
+            <p>{{ rec_job.work_mode }}</p>
+            <p>{{ rec_job.career_level }}</p>
+            <button class="details-button" data-job-id="{{ rec_job.id }}">Details</button>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</section>
+
 
     <!-- Featured Jobs Section -->
     <section class="featured-jobs">
@@ -82,6 +88,14 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 WorkScout. All rights reserved. | <a href="#">Contact Us</a></p>
+        </div>
+    </footer>
 
     <script src="{% static 'jobs/js/main.js' %}"></script>
 </body>
