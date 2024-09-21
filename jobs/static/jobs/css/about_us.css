@@ -1,0 +1,235 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Header Styling */
+.header {
+    background: linear-gradient(135deg, #3A0CA3, #DAF327); /* Same gradient as Interview Tips */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.workscoutLogo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #DAF327;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* No animation on logo */
+.workscoutLogo:hover {
+    transform: scale(1.1); /* Only a slight hover effect */
+}
+
+/* Navigation */
+.header-nav a {
+    color: #FFFFFF;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+    color: #DAF327;
+}
+
+/* Main Title Section */
+.main-title-section {
+    padding: 40px 0;
+    background-color: #F0F0F0;
+    text-align: center;
+}
+
+.main-title-section h1 {
+    font-size: 36px;
+    color: #3A0CA3;
+}
+
+.main-title-section p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Flip Card Section */
+.flip-card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    background-color: #D9D9D9;
+}
+
+/* Flip Card Styles */
+.flip-card {
+    background-color: transparent;
+    width: 250px;
+    height: 350px;
+    border: none;
+    perspective: 1000px;
+    transition: transform 0.6s ease;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Styling */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically */
+    align-items: center; /* Centers the content horizontally */
+    padding: 20px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.flip-card-front {
+    background-color: #3A0CA3;
+    color: white;
+    border: 3px solid #DAF327;
+}
+
+.flip-card-front h2 {
+    color: #DAF327;
+    font-size: 40px
+}
+.flip-card-back {
+    background-color: #fff;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+/* Centered text styling */
+.flip-card-front h2, .flip-card-back p {
+    margin: 0; /* Remove margins for better centering */
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* Responsive Layout for Flip Cards */
+@media (max-width: 768px) {
+    .flip-card {
+        width: 100%;
+        max-width: 300px;
+        height: 400px;
+    }
+}
+
+/* Meet the Team Section */
+.team-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #3A0CA3; /* Title color */
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Ensures team members align properly on different screen sizes */
+}
+
+.team-member {
+    background-color: #ffffff;
+    padding: 40px 25px; /* Increased padding to make the card taller */
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width for the cards */
+    min-height: 450px; /* Set a minimum height to make the card longer */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid #3A0CA3; /* Border color */
+}
+
+.team-member:hover {
+    transform: scale(1.15);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    border-color: #DAF327; /* Hover effect for border color */
+}
+
+.team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes the image circular */
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 20px;
+    color: #3A0CA3; /* Name color */
+}
+
+.team-member p {
+    font-size: 14px;
+    color: #000000; /* Description color */
+    line-height: 1.6; /* Line height to make text more readable */
+}
+
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #DAF327;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
