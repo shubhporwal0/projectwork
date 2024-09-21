@@ -8,22 +8,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchButton = document.getElementById('search-button');
     const sidebarContentInner = document.getElementById('sidebar-content-inner');
 
+    // Error handling if sidebar content inner is not found
     if (!sidebarContentInner) {
         console.error('Sidebar content inner element not found!');
         return;
     }
 
+    // Function to open the sidebar
     function openSidebar() {
         console.log('Opening sidebar');
         sidebar.style.right = '0';
     }
 
+    // Function to close the sidebar
     function closeSidebarFunction() {
         console.log('Closing sidebar');
         sidebar.style.right = '-100%';
-        sidebarContentInner.innerHTML = ''; // Clear the sidebar content when closing
+        sidebarContentInner.innerHTML = '';  // Clear sidebar content when closed
     }
 
+    // Function to display job details inside sidebar
     function showJobDetails(jobData) {
         console.log('Displaying job details:', jobData);
         sidebarContentInner.innerHTML = `
@@ -35,31 +39,45 @@ document.addEventListener("DOMContentLoaded", function () {
             <p><strong>Description:</strong> ${jobData.long_description}</p>
             <a id="sidebar-apply" href="${jobData.application_link}" class="apply-btn">Apply Now</a>
         `;
-        openSidebar();
+        openSidebar();  // Open the sidebar after loading job details
     }
 
+    // Event listener for the 'Details' and 'Know More' buttons
     detailsButtons.forEach(button => {
         button.addEventListener('click', function () {
             const jobId = this.getAttribute('data-job-id');
             console.log('Fetching details for job ID:', jobId);
 
-            fetch(`/job-details/${jobId}/`)
-                .then(response => response.json())
-                .then(data => {
-                    showJobDetails(data);
-                })
-                .catch(error => console.error('Error fetching job details:', error));
+            // Check if jobId is valid before making the request
+            if (jobId) {
+                fetch(`/job-details/${jobId}/`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();  // Parse response JSON
+                    })
+                    .then(data => {
+                        showJobDetails(data);  // Display job details in the sidebar
+                    })
+                    .catch(error => console.error('Error fetching job details:', error));
+            } else {
+                console.error('Job ID is missing or invalid!');
+            }
         });
     });
 
+    // Close sidebar when the close button is clicked
     closeSidebar.addEventListener('click', closeSidebarFunction);
 
+    // Close sidebar when the user clicks outside of it
     window.addEventListener('click', function (event) {
         if (event.target === sidebar) {
             closeSidebarFunction();
         }
     });
 
+    // Function to filter jobs based on career level
     function filterJobs(careerLevel) {
         jobCards.forEach(card => {
             if (careerLevel === "All" || card.getAttribute('data-career-level') === careerLevel) {
@@ -70,14 +88,16 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // Event listener for filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
             const filter = this.getAttribute('data-filter');
-            console.log('Filtering jobs by career level:', filter); // Debugging log
+            console.log('Filtering jobs by career level:', filter);
             filterJobs(filter);
         });
     });
 
+    // Event listener for search button
     searchButton.addEventListener('click', function () {
         const skill = searchInput.value.trim();
         console.log('Searching for skill:', skill);
@@ -88,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
                     }
-                    return response.json();
+                    return response.json();  // Parse response JSON
                 })
                 .then(data => {
                     console.log('Search results:', data.jobs);
@@ -100,9 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Function to display search results in the sidebar
     function displaySearchResults(jobs) {
         console.log('Displaying search results:', jobs);
-        sidebarContentInner.innerHTML = ''; // Clear previous content
+        sidebarContentInner.innerHTML = '';  // Clear previous content
 
         if (jobs.length === 0) {
             sidebarContentInner.innerHTML = '<p>No jobs found matching that skill.</p>';
@@ -115,9 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>${job.company_name}</p>
                     <p><strong>Location:</strong> ${job.contract_location}</p>
                     <p><strong>Career Level:</strong> ${job.career_level}</p>
-                    <button class="details-button" data-job-id="${job.id}">More Details</button>
+                    <button class="details-button" data-job-id="${job.job_id}">More Details</button>
                 `;
 
+                // Add event listener to display job details when button is clicked
                 jobElement.querySelector('.details-button').addEventListener('click', function () {
                     showJobDetails(job);
                 });
@@ -126,6 +148,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        openSidebar(); // Ensure the sidebar is opened
+        openSidebar();  // Ensure the sidebar is opened when displaying search results
     }
 });

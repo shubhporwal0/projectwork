@@ -4,8 +4,7 @@ from django.db import models
 class Job(models.Model):
     job_id = models.AutoField(primary_key=True)  # Align with the 'job_id' column as the primary key
     title = models.CharField(max_length=255, db_column='Title')  # Map to 'Title' column
-    department = models.CharField(max_length=255, db_column='Department', null=True,
-                                  blank=True)  # Map to 'Department' and handle null
+    #department = models.CharField(max_length=255, db_column='Department', null=True, blank=True)  # Map to 'Department' and handle null
     contract_location = models.CharField(max_length=255, db_column='contract_location')  # Map to 'contract_location'
     posting_date = models.DateField(db_column='Post_date')  # Map to 'Post_date'
     employment_type = models.CharField(max_length=255, db_column='Employment_type')  # Map to 'Employment_type'

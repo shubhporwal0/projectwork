@@ -1,4 +1,3 @@
-// interview_tips.js
 document.addEventListener('DOMContentLoaded', function () {
     const faqItems = document.querySelectorAll('.faq-item h4');
 
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Rotate the arrow
-            const arrow = this.querySelector('.arrow');
+            const arrow = this.querySelector('.faq-arrow');
             if (arrow) {
                 arrow.classList.toggle('rotate');
             }

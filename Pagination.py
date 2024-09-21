@@ -102,14 +102,14 @@ def scrape_jobs(page_number):
 
         # Insert data into the database
         table.execute('''
-            INSERT OR IGNORE INTO jobs_job (Title, Department, contract_location, Post_date, Employment_type, 
+            INSERT INTO jobs_job (title, contract_location, Post_date, Employment_type, 
             application_link, long_description)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (job_title, department, job_location, post_date, employment_type,
+            VALUES (?, ?, ?, ?, ?, ?)
+        ''', (job_title, job_location, post_date, employment_type,
               full_job_page_link, requirements_bullets))
 
         # Log the scraping (optional)
-        print(f"Job Title: {job_title}, Department: {department}, Date Posted: {post_date}")
+        print(f"Job Title: {job_title}, Date Posted: {post_date}")
         print(f"Employment Type: {employment_type}, Location: {job_location}, Link: {full_job_page_link}")
         print("------------------------------------------------------")
 
@@ -127,9 +127,12 @@ while True:
         print("No more jobs found or an error occurred.")
         break
 
-    time.sleep(random.randrange(1, 600))
+    time.sleep(random.randrange(1, 10))
 
     page += 1
+
+# Print completion message
+print("Process completed.")
 
 # Close the database connection when finished
 conn.close()
