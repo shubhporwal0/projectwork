@@ -1,0 +1,338 @@
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Animated Gradient Background for Header */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header {
+    background: linear-gradient(-45deg, #4646B7, #3A0CA3, #DAF327, #3A0CA3);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite; /* Gradient animation */
+    color: white;
+    padding: 180px 40px;
+    position: relative; /* Position relative to contain absolutely positioned elements */
+}
+.workscout-logo {
+    position: absolute; /* Position it absolutely within the header */
+    top: 40px; /* Distance from the top */
+    left: 60px; /* Distance from the left */
+    font-family: 'Montserrat', sans-serif; /* Choose a nice font like Poppins or another */
+    font-size: 24px; /* Font size */
+    font-weight: bold; /* Make it bold */
+    color: #DAF327; /* Choose a bright color that stands out */
+    z-index: 10; /* Make sure it stays on top of other elements */
+}
+
+.header-container {
+    display: flex;
+    align-items: center; /* Vertically centers the header content and image */
+    justify-content: space-between; /* Space out the header content and image */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns text to the left */
+    flex-grow: 1; /* Allows the content to grow and fill space */
+}
+
+
+.header-content h1 {
+    position: relative; /* Allows you to use top and left positioning */
+    top: 10px; /* Adjusts the distance from the top of its parent container */
+    left: 0px; /* Adjusts the distance from the left of its parent container */
+    font-size: 74px; /* Font size of the header text */
+    margin-bottom: 20px; /* Space below the header text */
+    font-family: 'Montserrat', sans-serif; /* Example font */
+    font-weight: bold; /* Makes the text bold */
+    color: #FFFFFF; /* Text color */
+}
+
+.header-nav {
+    position: absolute; /* Position the nav absolutely within the header */
+    top: 60px; /* Position the nav at the top */
+    right: 45px; /* Position the nav to the right */
+    display: flex;
+}
+
+.header-nav a {
+    color: #DAF327;
+    margin-left: 20px; /* Adds spacing between links */
+    text-decoration: none;
+    font-size: 21px;
+}
+
+/* Interactive Search Bar Styles */
+.search-bar {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Align the search bar to the left */
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 15px;
+    width: 50%; /* Adjust width for better alignment */
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 18px;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 15px rgba(218, 243, 39, 0.5); /* Glow effect on focus */
+}
+
+.search-bar button {
+    padding: 15px 25px;
+    background-color: #DAF327;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.search-bar button:hover {
+    background-color: #C6E128; /* Lighter shade on hover */
+}
+
+.header-image {
+    max-width: 300px;
+    height: auto;
+    align-self: flex-end; /* Aligns the image to the right */
+    margin-left: 20px; /* Adds space between the header content and image */
+}
+
+.categories {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+.card-color-1 {
+    background: linear-gradient(135deg, #DAF327 0%, #B0C72D 100%);
+}
+
+.card-color-2 {
+    background: linear-gradient(135deg, #FF6F61 0%, #FF9A8B 100%);
+}
+
+.card-color-3 {
+    background: linear-gradient(135deg, #6A82FB 0%, #FC5C7D 100%);
+}
+
+
+.category-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 300px;
+}
+
+.category-card {
+    background-color: #DAF327; /* Example background color */
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px; /* Increased width for a more square-like appearance */
+    height: 250px; /* Add height to give the card a more square shape */
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add smooth transition */
+}
+
+.category-card:hover {
+    transform: translateY(-10px); /* Lifts the card slightly up on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Darkens shadow on hover */
+}
+
+.category-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.category-card .company {
+    font-weight: bold;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.job-tags span {
+    background-color: #ddd;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #333;
+}
+
+.salary {
+    font-size: 16px;
+    color: #000;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.details-button {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 12px 18px; /* Increase padding for a bigger button */
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for hover effects */
+}
+
+.details-button:hover {
+    background-color: #D9D9D9;
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+.featured-jobs {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background-color: #FFBE0B;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.filter-btn:hover {
+    background-color: #e0a800;
+}
+
+.job-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-list-item {
+    background-color: #F0F0F0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-info {
+    flex-grow: 1;
+}
+
+.sidebar {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 700px;
+    height: 100%;
+    background-color: #3A0CA3; /* Blue background */
+    color: white; /* White text */
+    box-shadow: -5px 0 5px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.apply-btn {
+    background-color: #FFBE0B;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.sidebar h2, .sidebar h3, .sidebar p {
+    color: white; /* White text color */
+}
+
+.close-button {
+    cursor: pointer;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: #fff;
+}
+
+.sidebar-content {
+    padding: 20px;
+    color: white; /* Ensure text is white */
+}
+
+.sidebar-content .job-result {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white;
+}
+
+.sidebar-content .job-result h3,
+.sidebar-content .job-result p {
+    color: white; /* Ensure text is white */
+}
+
+.close-button {
+    cursor: pointer;
+    color: white; /* Update color for contrast */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover {
+    color: #ccc;
+}
