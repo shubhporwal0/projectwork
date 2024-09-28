@@ -29,18 +29,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to display job details inside sidebar
     function showJobDetails(jobData) {
-        console.log('Displaying job details:', jobData);
-        sidebarContentInner.innerHTML = `
-            <h2 id="sidebar-title">${jobData.title}</h2>
-            <h3 id="sidebar-company">${jobData.company_name}</h3>
-            <p><strong>Location:</strong> ${jobData.contract_location}</p>
-            <p><strong>Work Mode:</strong> ${jobData.work_mode}</p>
-            <p><strong>Career Level:</strong> ${jobData.career_level}</p>
-            <p><strong>Description:</strong> ${jobData.long_description}</p>
-            <a id="sidebar-apply" href="${jobData.application_link}" class="apply-btn">Apply Now</a>
-        `;
-        openSidebar();  // Open the sidebar after loading job details
+    console.log('Displaying job details:', jobData);
+    
+    // Check if long_description is longer than 4000 characters
+    let description = jobData.long_description;
+    if (description.length > 400) {
+        description = description.substring(0, 400) + '...';
     }
+    
+    sidebarContentInner.innerHTML = `
+        <h2 id="sidebar-title">${jobData.title}</h2>
+        <h3 id="sidebar-company">${jobData.company_name}</h3>
+        <p><strong>Location:</strong> ${jobData.contract_location}</p>
+        <p><strong>Work Mode:</strong> ${jobData.work_mode}</p>
+        <p><strong>Career Level:</strong> ${jobData.career_level}</p>
+        <p><strong>Description:</strong> ${description}</p>
+        <a id="sidebar-apply" href="${jobData.application_link}" class="apply-btn">Apply Now</a>
+    `;
+    openSidebar();  // Open the sidebar after loading job details
+}
+
 
     // Event listener for the 'Details' and 'Know More' buttons
     detailsButtons.forEach(button => {
