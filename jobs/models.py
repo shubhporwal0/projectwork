@@ -1,13 +1,33 @@
 from django.db import models
 
-class JobListing(models.Model):
-    job_title = models.CharField(max_length=200)
-    job_location = models.CharField(max_length=100)
-    apply_link = models.URLField(max_length=200)
-    job_description = models.TextField()
+
+class Job(models.Model):
+    job_id = models.IntegerField(db_column='job_id', primary_key=True)
+    title = models.CharField(max_length=255, db_column='Title')  # Map to 'Title' column
+    #department = models.CharField(max_length=255, db_column='Department', null=True, blank=True)  # Map to 'Department' and handle null
+    contract_location = models.CharField(max_length=255, db_column='contract_location')  # Map to 'contract_location'
+    posting_date = models.TextField(db_column='posting_date')  # Map to 'Post_date'
+    employment_type = models.CharField(max_length=255, db_column='Employment_type')  # Map to 'Employment_type'
+    application_link = models.URLField(max_length=200, db_column='application_link')  # Map to 'application_link'
+    long_description = models.TextField(db_column='long_description')  # Map to 'long_description'
+
+    # New columns added in models but missing in the database; handle nulls if needed
+    career_level = models.CharField(max_length=100, null=True, blank=True)  # This column can be null
+    work_mode = models.CharField(max_length=100, null=True, blank=True)  # This column can be null
+    company_name = models.CharField(max_length=255, null=True, blank=True)  # This column can be null
 
     def __str__(self):
-        return self.job_title
+        return f"{self.title} at {self.company_name}"
 
-    class Meta:
-        db_table = 'job_listings'  # Specify the exact table name
+class RecommendedJob(models.Model):
+    posting_date = models.DateField()
+    long_description = models.TextField()
+    career_level = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
+    company_name = models.CharField(max_length=255)
+    work_mode = models.CharField(max_length=100)
+    contract_location = models.CharField(max_length=255)
+    application_link = models.URLField(max_length=200)
+
+    def __str__(self):
+        return f"{self.title} at {self.company_name}"
