@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <link rel="stylesheet" href="{% static 'jobs/css/styles1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="workscout-logo">Workscout</div>
+        <nav class="header-nav">
+            <a href="#">Recently viewed jobs</a>
+            <a href="{% url 'interview_tips' %}" id="interview-tips-btn">Interview Tips</a>
+            <a href="{% url 'about_us' %}" id="about-us-btn"> About Us</a>
+        </nav>
+        <div class="header-container" style="display:flex;">
+            <div class="header-content">
+                <h1>Find the perfect job for you</h1>
+                <form class="search-bar" id="search-form" action="/search/" method="GET">
+                    <input type="text" id="search-input" placeholder="Job title, keyword or company">
+                    <button type="button" id="search-button">Search</button>
+                </form>
+            </div>
+            <img src="{% static 'jobs/images/undraw_coffee_with_friends_3cbj.svg' %}" alt="Coffee with Friends" style="max-width: 300px; height: auto;">
+        </div>
+    </header>
+
+
+    <!-- Featured Jobs Section -->
+    <section class="featured-jobs">
+        <div>
+            <h1>Featured Jobs</h1>
+            <p>Know your strengths and find out what fits best for you</p>
+        </div>
+        <div class="filters">
+            <button class="filter-btn" data-filter="Entry Level">Entry Level</button>
+            <button class="filter-btn" data-filter="Mid Level">Mid Level</button>
+            <button class="filter-btn" data-filter="Intern">Intern</button>
+            <button class="filter-btn" data-filter="All">All</button>
+            <button id="refresh-button">Refresh Job Listings</button>
+
+            <script>
+                document.getElementById('refresh-button').addEventListener('click', function() {
+                    fetch('/refresh/')
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.status === 'success') {
+                                alert(data.message);
+                                location.reload();  // Reload the page to update job listings
+                            } else {
+                                alert('Failed to refresh jobs.');
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            </script>
+        </div>
+        <div class="job-listings">
+            <ul class="job-list">
+                {% for job in jobs %}
+                <li class="job-list-item" data-career-level="{{ job.career_level }}">
+                    <div class="job-info">
+                        <h3>{{ job.title }} ({{ job.career_level }})</h3>
+                        <p>{{ job.company_name }}</p>
+                        <p>{{ job.contract_location }}</p>
+                         <p>{{ job.posting_date }}</p>
+                    </div>
+                    <button class="details-button" data-job-id="{{ job.job_id }}">Know More</button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sidebar for Job Details -->def job_search(request):
+    query = request.GET.get('q')  # Get the search query from the request
+    if query:
+        # Filter jobs based on the search query in the title field
+        matched_jobs = Job.objects.filter(title__icontains=query)
+    else:
+        matched_jobs = Job.objects.all()  # Show all jobs if no query
+
+    context = {'jobs': matched_jobs, 'query': query}
+    return render(request, 'job_search.html', context)
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <span id="close-sidebar" class="close-button">&times;</span>
+            <div id="sidebar-content-inner">
+                <!-- Content dynamically updated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 WorkScout. All Rights reserved. | <a href="#">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <script src="{% static 'jobs/js/main.js' %}"></script>
+</body>
+</html>

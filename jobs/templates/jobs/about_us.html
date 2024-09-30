@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'jobs/css/about_us.css' %}">
+</head>
+<body>
+    <!-- Header Section with WorkScout Logo -->
+    <header class="header">
+        <div class="header-container">
+            <!-- Logo with Link to Home Page (job_list) -->
+            <a href="{% url 'job_list' %}" class="logo-link">
+                <div class="workscoutLogo">WorkScout</div>
+            </a>
+            <nav class="header-nav">
+                <a href="{% url 'job_list' %}">Home</a>
+                <a href="{% url 'interview_tips' %}">Interview Tips</a>
+                <a href="#">About Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Title Section -->
+    <section class="main-title-section">
+        <h1>About Us</h1>
+        <p>Connecting Talents with Opportunities</p>
+    </section>
+
+    <!-- Flip Card Section -->
+    <section class="flip-card-section">
+        <!-- Why We Created WorkScout Flip Card -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Why We Created WorkScout</h2>
+                </div>
+                <div class="flip-card-back">
+                    <p>
+                        At WorkScout, we recognized a significant gap in the job market — both for job seekers and employers.
+                        In a rapidly changing work environment, finding the right opportunities or the right talent can be incredibly challenging.
+                    </p>
+                    <p>
+                        Our mission is to empower individuals by providing them with the tools they need to succeed in their job search.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Mission Flip Card -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Our Mission</h2>
+                </div>
+                <div class="flip-card-back">
+                    <p>
+                        At WorkScout, we strive to create a world where job seekers can easily find positions that align with their personal and professional aspirations.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empower Flip Card -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Empower</h2>
+                </div>
+                <div class="flip-card-back">
+                    <p>
+                        We aim to empower job seekers by offering tailored career advice, tools, and resources to help them succeed.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connect Flip Card -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Connect</h2>
+                </div>
+                <div class="flip-card-back">
+                    <p>
+                        Our platform connects professionals with companies that value growth, innovation, and diversity.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Flip Card -->
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h2>Support</h2>
+                </div>
+                <div class="flip-card-back">
+                    <p>
+                        We provide ongoing support for job seekers, helping them navigate every step of the career journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team Section -->
+    <section class="team-section">
+        <h2>Meet the Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="{% static 'jobs/images/kejsilicaj.jpg' %}" alt="Kejsi Licaj">
+                <h3>Kejsi Licaj (Frontend)</h3>
+                <p>Currently finishing my B.Sc in Management and Technology with a specialization in Digital Technologies,
+                I am driven in the data-driven world as well as have an interest in finance.</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'jobs/images/shubhporwal.jpg' %}" alt="Shubh Porwal">
+                <h3>Shubh Porwal (Backend)</h3>
+                <p>I am a Bachelor’s student at the Technical University of Munich, specializing in Management
+                    and Technology. With a passion for both sports and e-commerce,
+                    I thrive at the intersection of business and innovation.
+                    My academic journey equips me with the tools to navigate
+                    the evolving tech-driven business world, while my love for sports
+                    fuels my drive for teamwork and success.
+                    I'm excited to explore how technology can reshape
+                    the future of e-commerce and online business.</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'jobs/images/mark_smith.png' %}" alt="Mark Smith">
+                <h3>Eniya Eneva</h3>
+                <p>Frontend Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="{% static 'jobs/images/emma_brown.png' %}" alt="Emma Brown">
+                <h3>Shadrach</h3>
+                <p>Backend Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 WorkScout. All rights reserved. | <a href="#">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <script src="{% static 'jobs/js/about_us.js' %}"></script>
+</body>
+</html>
